@@ -1,0 +1,18 @@
+<% book.book_comments.each do |book_comment| %>
+  <div class="d-flex align-items-center">
+    <div class="mr-2">
+      <%= link_to(book_comment.user) do %>
+        <%= image_tag book_comment.user.get_profile_image, size:"50x50" %><br>
+        <%= book_comment.user.name %>
+      <% end %>
+    </div>
+    <div class="mx-2">
+      <%= book_comment.comment %>
+    </div>
+    <% if book_comment.user == current_user %>
+      <div class="mx-2">
+        <%= link_to 'Destroy', book_book_comment_path(book_comment.book, book_comment), method: :delete, class: "btn btn-sm btn-danger", remote:true, data: {"turbolinks" => false} %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
