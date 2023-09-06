@@ -64,7 +64,7 @@
       </div>
       <div id="search_result">
         <% if @search_books.present? %>
-          <%= render 'search', [search_books: @search_books, create_at: @create_at] %>
+          <%= render 'search', search_books: @search_books %>
         <% end %>
       </div>
     </div>
