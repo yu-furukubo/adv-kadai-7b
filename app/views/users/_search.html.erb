@@ -1,0 +1,22 @@
+<h3>検索結果</h3>
+<% if @create_at == "" %>
+  <p>日付を選択してください</p>
+<% else %>
+  <%= search_books.count %>件
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Opinion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% search_books.each do |search_book| %>
+        <tr>
+          <td><%= search_book.title %></td>
+          <td><%= search_book.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

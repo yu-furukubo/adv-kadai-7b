@@ -33,6 +33,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @user = User.find(params[:user_id])
+    @books = @user.books
+    @book = Book.new
+    @create_at = params[:created_at]
+    @search_books = @books.where(['created_at LIKE ?', "#{@create_at}%"])
+  end
+
   def follow_users
     @user = User.find(params[:id])
     @users = @user.following_users

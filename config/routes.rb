@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get :follow_users, :follower_users
     end
     resource :relationship, only: [:create, :destroy]
+    get "search"=>"users#search"
   end
 
   devise_scope :user do
